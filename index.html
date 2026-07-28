@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speedmaster Professional — Moonwatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="assets/model-viewer.min.js"></script>
+</head>
+<body>
+
+<div id="backdrop"></div>
+
+<div id="model-bg">
+  <model-viewer id="watch-viewer"
+    alt="Omega Speedmaster Professional Moonwatch — interactive 3D model, background"
+    environment-image="neutral"
+    exposure="1.35"
+    shadow-intensity="0.85"
+    shadow-softness="0.85"
+    camera-orbit="32deg 66deg 112%"
+    interaction-prompt="none"
+    camera-controls="false"
+    disable-zoom
+    disable-pan
+    disable-tap
+    loading="eager"
+    src="assets/moonwatch.glb">
+  </model-viewer>
+</div>
+<div id="model-veil"></div>
+<div id="grain"></div>
+<div id="progress-rail"></div>
+
+<div class="hud-corner tl"></div>
+<div class="hud-corner tr"></div>
+
+<div id="boot">
+  <div class="ring"></div>
+  <div class="txt">Initializing <b>3D Viewer</b></div>
+  <div class="pct" id="boot-pct"></div>
+</div>
+
+<div id="orbit-readout">
+  <svg width="30" height="30" viewBox="0 0 30 30">
+    <circle class="track" cx="15" cy="15" r="12" fill="none" stroke-width="1.5"/>
+    <circle class="fill" id="orbit-circle" cx="15" cy="15" r="12" fill="none" stroke-width="1.5"
+      stroke-dasharray="75.4" stroke-dashoffset="75.4"/>
+  </svg>
+  <span>Orbit <span class="deg" id="orbit-deg">0°</span></span>
+</div>
+
+<div id="credit-badge">
+  3D model: <a href="https://sketchfab.com/3d-models/omega-speedmaster-moon-watch-88622ebc61d943c589a3687b002c1ca6" target="_blank" rel="noopener">"Omega Speedmaster Moon Watch"</a>
+  by <a href="https://sketchfab.com/jeandiz" target="_blank" rel="noopener">SpatialNeglect</a> ·
+  <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+</div>
+
+<nav id="site-nav">
+  <div class="brand">OMEGA · <b>SPEEDMASTER</b></div>
+  <div id="nav-section"><span class="val" id="nav-section-val">00 — Overview</span></div>
+  <div class="status"><span class="dot"></span>MOONWATCH PROFESSIONAL</div>
+</nav>
+
+<main>
+
+  <section id="hero" data-label="00 — Overview">
+    <div id="hero-ring" aria-hidden="true">
+      <svg viewBox="0 0 640 640">
+        <circle class="ring-outer" cx="320" cy="320" r="300"/>
+        <circle class="ring-inner" cx="320" cy="320" r="232"/>
+        <g id="ring-ticks"></g>
+      </svg>
+    </div>
+    <div class="hero-top">
+      <div class="hero-kicker">Co-Axial Master Chronometer · <b>Flight-Qualified by NASA, 1965</b></div>
+      <h1>MOONWATCH</h1>
+      <p class="hero-sub">The manual-wind chronograph that survived NASA's harshest
+      qualification tests and went on to become <b>the first watch worn on the surface of
+      the Moon</b>. It's rotating behind this page right now — keep scrolling and it turns
+      with you.</p>
+      <div class="hero-tags">
+        <span>Manual-Wind Chronograph</span>
+        <span>Hesalite Crystal</span>
+        <span>Tachymeter Bezel</span>
+        <span>Cal. 3861</span>
+      </div>
+      <div class="hero-hint"><span class="arrow"></span>Scroll to orbit the watch</div>
+    </div>
+  </section>
+
+  <section id="mission" data-label="01 — Flight Record">
+    <div class="grid-2">
+      <div class="reveal text-panel">
+        <div class="eyebrow">01 — Flight Record</div>
+        <h2>It didn't go to space<br>because it was famous.<br>It became famous because<br>it went to space.</h2>
+        <p class="desc">NASA didn't accept sponsorships or endorsements. Every chronograph
+        submitted for qualification was bought off the shelf, stripped of its brand, and
+        run through tests designed to break it. <b>The Speedmaster was the only one that
+        didn't.</b></p>
+      </div>
+      <div class="timeline reveal reveal-delay-1">
+        <div class="tl-item">
+          <div class="tl-year">1962</div>
+          <div class="tl-title">First Omega in space</div>
+          <div class="tl-desc">Astronaut Wally Schirra wears his personal Speedmaster
+          aboard <b>Mercury-Atlas 8</b> — the watch reaches orbit before NASA has even
+          chosen an official timepiece.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1965</div>
+          <div class="tl-title">NASA flight-qualified</div>
+          <div class="tl-desc">After tests spanning extreme heat, vacuum, humidity, shock
+          and vibration, the Speedmaster is the only chronograph to pass every stage and
+          is <b>qualified for all manned space missions</b>.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1969</div>
+          <div class="tl-title">Worn on the lunar surface</div>
+          <div class="tl-desc">During Apollo 11, Buzz Aldrin wears his Speedmaster on the
+          Moon's surface — <b>the first watch worn there</b>, while Neil Armstrong's
+          remains inside the Lunar Module as backup timing.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1970</div>
+          <div class="tl-title">Timed the crew home</div>
+          <div class="tl-desc">Aboard the crippled Apollo 13, with onboard electronics
+          powered down, the crew uses a Speedmaster to hand-time a <b>critical 14-second
+          engine burn</b> that corrects their course back to Earth.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dial" data-label="02 — Instrument">
+    <div class="grid-2">
+      <div class="feat-visual reveal">
+        <div class="inner-ring"></div>
+        <div class="center-dot"></div>
+        <div class="label n">12</div>
+        <div class="label s">6</div>
+        <div class="label orange" style="top:38%;right:10%;">90</div>
+      </div>
+      <div class="reveal reveal-delay-1 text-panel">
+        <div class="eyebrow">02 — Instrument, Not Accessory</div>
+        <h2>Three sub-dials.<br>One decision made<br>for a reason.</h2>
+        <p class="desc">The tri-compax layout packs a 30-minute counter, small seconds,
+        and a 12-hour counter around the chronograph centre, with a <b>tachymeter scale</b>
+        on the bezel for reading speed over a known distance. The dome above it is
+        <b>hesalite, not sapphire</b> — a deliberate trade-off, because acrylic doesn't
+        shatter into sharp fragments in a pressurised cabin. On the tension ring, a small
+        <b style="color:var(--orange);">orange dot at ninety</b> gave astronauts a fixed
+        point to eyeball a countdown against.</p>
+        <div class="facts-row">
+          <div><div class="k">Crystal</div><div class="v">Hesalite, domed</div></div>
+          <div><div class="k">Sub-dials</div><div class="v">Tri-compax, 3</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="movement" data-label="03 — Movement">
+    <div class="grid-2">
+      <div class="reveal text-panel">
+        <div class="eyebrow">03 — Manually Wound, Deliberately</div>
+        <h2>Nothing in it depends<br>on gravity to work.</h2>
+        <p class="desc">A hand-wound movement has no rotor bearing that needs weight to
+        swing, and no battery to fail in a vacuum — which is exactly why it was still the
+        right choice decades after automatic movements became common. The modern
+        <b>calibre 3861</b> keeps that manual-wind column-wheel chronograph architecture,
+        adds a co-axial escapement, and is <b>Master Chronometer certified</b> — tested
+        for resistance to magnetic fields up to 15,000 gauss.</p>
+        <div class="facts-row">
+          <div><div class="k">Winding</div><div class="v">Manual, column-wheel</div></div>
+          <div><div class="k">Power reserve</div><div class="v">~50 hours</div></div>
+        </div>
+      </div>
+      <div class="feat-visual reveal reveal-delay-1">
+        <div class="inner-ring"></div>
+        <div class="center-dot"></div>
+        <div class="label n">15,000G</div>
+        <div class="label s">MASTER CHRONOMETER</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specs" data-label="04 — Specification">
+    <div class="specs-head reveal text-panel" style="display:inline-block;">
+      <div class="eyebrow" style="justify-content:center;">04 — Specification</div>
+      <h2>Full flight record.</h2>
+    </div>
+    <div class="spec-table reveal reveal-delay-1">
+      <div class="spec-row"><div class="k">Case diameter</div><div class="v">42.0 mm</div></div>
+      <div class="spec-row"><div class="k">Case material</div><div class="v">Stainless steel</div></div>
+      <div class="spec-row"><div class="k">Movement</div><div class="v">Calibre 3861, Manual-Wind Co-Axial Master Chronometer</div></div>
+      <div class="spec-row"><div class="k">Power reserve</div><div class="v">Approx. 50 hours</div></div>
+      <div class="spec-row"><div class="k">Crystal</div><div class="v">Hesalite, domed</div></div>
+      <div class="spec-row"><div class="k">Bezel</div><div class="v">Black, tachymeter scale</div></div>
+      <div class="spec-row"><div class="k">Water resistance</div><div class="v">50 m / 165 ft</div></div>
+      <div class="spec-row"><div class="k">Heritage</div><div class="v">NASA flight-qualified, 1965 — Apollo 11, 1969</div></div>
+    </div>
+  </section>
+
+  <section id="cta" data-label="05 — Debrief">
+    <div class="reveal text-panel">
+      <div class="eyebrow" style="justify-content:center;">Mission Complete</div>
+      <h2>Some instruments get retired.<br>This one just kept flying.</h2>
+      <button class="cta-btn" id="cta-return">Return to Orbit</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="col">OMEGA — SPEEDMASTER PROFESSIONAL MOONWATCH. Concept tribute page, built to
+  explore 3D-on-web presentation. Not an official Omega product.</div>
+  <div class="col">3D model © SpatialNeglect (jeandiz), licensed
+  <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+  via <a href="https://sketchfab.com/3d-models/omega-speedmaster-moon-watch-88622ebc61d943c589a3687b002c1ca6" target="_blank" rel="noopener">Sketchfab</a>.
+  Historical notes summarised from public NASA/Omega mission accounts.</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const mv = document.getElementById("watch-viewer");
+  const boot = document.getElementById("boot");
+  const bootPct = document.getElementById("boot-pct");
+  const orbitDeg = document.getElementById("orbit-deg");
+  const orbitCircle = document.getElementById("orbit-circle");
+  const nav = document.getElementById("site-nav");
+  const navSectionVal = document.getElementById("nav-section-val");
+  const root = document.documentElement;
+  const CIRC = 75.4; // 2*pi*12, matches the readout ring radius
+  const SMOOTHING = 0.105;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let baseline = null;      // { thetaDeg, phiDeg, radius }
+  let targetProgress = 0;
+  let smoothProgress = 0;
+  let rafId = null;
+
+  /* ---- draw the chronometer-bezel tick ring behind the hero headline ---- */
+  function buildHeroRing(){
+    const g = document.getElementById("ring-ticks");
+    if (!g) return;
+    const cx = 320, cy = 320, rOuter = 300, rInnerMinor = 286, rInnerMajor = 268;
+    for (let i = 0; i < 72; i++){
+      const angle = (i / 72) * Math.PI * 2;
+      const major = i % 6 === 0;
+      const r2 = major ? rInnerMajor : rInnerMinor;
+      const x1 = cx + Math.cos(angle) * rOuter;
+      const y1 = cy + Math.sin(angle) * rOuter;
+      const x2 = cx + Math.cos(angle) * r2;
+      const y2 = cy + Math.sin(angle) * r2;
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", x1.toFixed(2));
+      line.setAttribute("y1", y1.toFixed(2));
+      line.setAttribute("x2", x2.toFixed(2));
+      line.setAttribute("y2", y2.toFixed(2));
+      line.setAttribute("class", "tick" + (major ? " major" : ""));
+      g.appendChild(line);
+    }
+  }
+  buildHeroRing();
+
+  function scrollProgress(){
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    return max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+  }
+
+  function applyFrame(p){
+    root.style.setProperty("--scroll-progress", p.toFixed(5));
+    root.style.setProperty("--model-y", (-20 * p).toFixed(2) + "px");
+    root.style.setProperty("--veil-shift", ((p - 0.5) * 36).toFixed(2) + "px");
+    if (mv && baseline){
+      const thetaDeg = baseline.thetaDeg + p * 360;
+      const phiDeg = baseline.phiDeg + Math.sin(p * Math.PI * 2) * 2.4;
+      const radius = baseline.radius * (1 - Math.sin(p * Math.PI) * 0.025);
+      mv.cameraOrbit = thetaDeg.toFixed(2) + "deg " + phiDeg.toFixed(2) + "deg " + radius.toFixed(3) + "m";
+    }
+    const turns = (p * 360) % 360;
+    orbitDeg.textContent = Math.round(turns) + String.fromCharCode(176);
+    orbitCircle.style.strokeDashoffset = (CIRC - p * CIRC).toFixed(2);
+    nav.classList.toggle("scrolled", window.scrollY > 40);
+  }
+
+  function tick(){
+    rafId = null;
+    const diff = targetProgress - smoothProgress;
+    smoothProgress += reducedMotion ? diff : diff * SMOOTHING;
+    if (Math.abs(diff) > 0.0002){
+      rafId = requestAnimationFrame(tick);
+    } else {
+      smoothProgress = targetProgress;
+    }
+    applyFrame(smoothProgress);
+  }
+
+  function requestUpdate(){
+    targetProgress = scrollProgress();
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+
+  mv.addEventListener("progress", function(ev){
+    const p = Math.round((ev.detail.totalProgress || 0) * 100);
+    bootPct.textContent = p + "%";
+  });
+
+  mv.addEventListener("load", function(){
+    try{
+      const orbit = mv.getCameraOrbit();
+      baseline = {
+        thetaDeg: orbit.theta * 180 / Math.PI,
+        phiDeg: orbit.phi * 180 / Math.PI,
+        radius: orbit.radius
+      };
+    } catch(e){ baseline = null; }
+
+    mv.classList.add("ready");
+    boot.classList.add("hidden");
+    document.querySelector(".hero-top").classList.add("in");
+
+    targetProgress = scrollProgress();
+    smoothProgress = targetProgress;
+    applyFrame(smoothProgress);
+  });
+
+  mv.addEventListener("error", function(){
+    boot.classList.add("hidden");
+    document.querySelector(".hero-top").classList.add("in");
+  });
+
+  setTimeout(function(){
+    boot.classList.add("hidden");
+    document.querySelector(".hero-top").classList.add("in");
+  }, 2600);
+
+  /* ---- reveal-on-scroll for content sections ---- */
+  const revealEls = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ---- nav telemetry: which section is currently in view ---- */
+  const labeledSections = document.querySelectorAll("main section[data-label]");
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) navSectionVal.textContent = e.target.dataset.label;
+    });
+  }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+  labeledSections.forEach(el => sectionObserver.observe(el));
+
+  /* ---- smooth in-page return-to-top ---- */
+  document.getElementById("cta-return").addEventListener("click", function(){
+    document.getElementById("hero").scrollIntoView({ behavior: "smooth" });
+  });
+
+  /* ---- premium micro-interactions (skipped for touch / reduced-motion) ---- */
+  const canHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+  if (canHover && !reducedMotion){
+    const magnet = document.querySelector(".cta-btn");
+    magnet.addEventListener("pointermove", function(e){
+      const r = magnet.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * 0.35;
+      const y = (e.clientY - r.top - r.height / 2) * 0.35;
+      magnet.style.setProperty("--magnet-x", x.toFixed(1) + "px");
+      magnet.style.setProperty("--magnet-y", y.toFixed(1) + "px");
+    });
+    magnet.addEventListener("pointerleave", function(){
+      magnet.style.setProperty("--magnet-x", "0px");
+      magnet.style.setProperty("--magnet-y", "0px");
+    });
+
+    document.querySelectorAll(".feat-visual").forEach(function(el){
+      el.addEventListener("pointermove", function(e){
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty("--tilt-x", (-py * 8).toFixed(2) + "deg");
+        el.style.setProperty("--tilt-y", (px * 8).toFixed(2) + "deg");
+      });
+      el.addEventListener("pointerleave", function(){
+        el.style.setProperty("--tilt-x", "0deg");
+        el.style.setProperty("--tilt-y", "0deg");
+      });
+    });
+
+    let panelTarget = { x: 0, y: 0 };
+    let panelCurrent = { x: 0, y: 0 };
+    document.addEventListener("pointermove", function(e){
+      panelTarget.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      panelTarget.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+    (function panelLoop(){
+      panelCurrent.x += (panelTarget.x - panelCurrent.x) * 0.06;
+      panelCurrent.y += (panelTarget.y - panelCurrent.y) * 0.06;
+      root.style.setProperty("--panel-x", (panelCurrent.x * 4).toFixed(2) + "px");
+      root.style.setProperty("--panel-y", (panelCurrent.y * 3).toFixed(2) + "px");
+      requestAnimationFrame(panelLoop);
+    })();
+  }
+
+  requestUpdate();
+})();
+</script>
+
+</body>
+</html>
